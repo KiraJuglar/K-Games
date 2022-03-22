@@ -41,6 +41,7 @@
           <option value='Casual' {{ isset($videojuego) && $videojuego->categoria == 'Casual' ? 'selected' : ''}}>Casual</option> 
           <option value='Sigilo' {{ isset($videojuego) && $videojuego->categoria == 'Sigilo' ? 'selected' : ''}}>Sigilo</option> 
           <option value='Comedia' {{ isset($videojuego) && $videojuego->categoria == 'Comedia' ? 'selected' : ''}}>Comedia</option> 
+          <option value='Horror' {{ isset($videojuego) && $videojuego->categoria == 'Horror' ? 'selected' : ''}}>Horror</option> 
         </select><br>
         <input type='submit' value='Guardar'>
       </form>
