@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Videojuego extends Model
 {
     use HasFactory;
+
+    public function getExcerptAttribute()
+    {
+        return substr($this->descripcion,0,80) . "..." ;
+    }
 }
+

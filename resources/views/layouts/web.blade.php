@@ -10,7 +10,7 @@
   <header class="shadow-lg">
     <div class="bg-blue-900 py-1"></div>
     <nav class="bg-blue-800 py-2">
-      <a href="{{ route('home') }}">
+      <a href="/videojuego">
         <img src="{{ asset('images/Logo.jpg') }}" alt="" class="h-8 mx-auto"> 
       </a>
     </nav>

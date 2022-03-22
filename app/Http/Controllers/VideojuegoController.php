@@ -49,6 +49,7 @@ class VideojuegoController extends Controller
         $videojuego->precio = $request->precio;
         $videojuego->descripcion = $request->descripcion;
         $videojuego->categoria = $request->categoria;
+        $videojuego->imagen = '';
         $videojuego->save();
         return redirect('/videojuego');
     }
@@ -96,6 +97,7 @@ class VideojuegoController extends Controller
         $videojuego->precio = $request->precio;
         $videojuego->descripcion = $request->descripcion;
         $videojuego->categoria = $request->categoria;
+        $videojuego->imagen = '';
         $videojuego->save();
         return redirect('/videojuego');
     }
