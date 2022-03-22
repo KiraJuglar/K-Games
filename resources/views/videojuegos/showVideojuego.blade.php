@@ -1,55 +1,33 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kira Games</title>
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-<body>
-  <header class="shadow-lg">
-    <div class="bg-blue-900 py-1"></div>
-    <nav class="bg-blue-800 py-2">
-      <a href="#">
-        <img src="{{ asset('images/Logo.jpg') }}" alt="" class="h-8 mx-auto"> 
-      </a>
-    </nav>
-  </header>
-  <main class="py-10">
-    <div class="container mx-auto px-4">
+@extends('layouts.web')
 
-    <h1>Informacion de videojuego</h1>
-    <table>
-        <tr>    
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Categoria</th>
-            <th>Descripcion</th>
-        </tr>
-        <tr>    
-            <td>{{ $videojuego->nombre }}</td>
-            <td>{{ $videojuego->precio }}</td>
-            <td>{{ $videojuego->categoria }}</td>
-            <td>{{ $videojuego->descripcion }}</td>
-        </tr>   
-    </table>
+@section('content')
+    <div class="grid grid-cols-3 gap-4">
+        <div class="p-8 bg-gray-200 col-span-1">
+            <ul class="flex flex-col">
+            <li class="font-medium text-sm text-gray-400 uppercase mb-4">Contenido</li>
+            </ul>
+            <a href='{{$videojuego->id}}/edit'>Modificar</a><br>
+            <form action='{{$videojuego->id}}'method=POST>
+                @csrf
+                @method('DELETE')
+                <input type='submit' value='Borrar'>
+            </form> 
+        </div>
+        <div class="text-gray-700 col-span-2">
+            <img src="{{ $videojuego->imagen }}" alt="">
+            <h2 class="text-4xl">{{ $videojuego->nombre }}</h2>
+            <p>{{ $videojuego->descripcion }}</p>
+            <p>{{ $videojuego->categoria }}</p>
+            <p>${{ $videojuego->precio }}</p>
+        </div>
 
-      @yield('content')
+        
     </div>
-  </main>
-  <footer class="py-4 text-center">
-    @auth
-      <a href="{{ url('dashboard') }}" class="text-sm text-gray-700 underline">
-        Dashboard
-      </a>
-    @else
-      <a href="{{ url('login') }}" class="text-sm text-gray-700 underline">
-        Login
-      </a>
-      <a href="{{ url('register') }}" class="ml-4 text-sm text-gray-700 underline">
-        Register
-      </a>
-    @endauth
-  </footer>
-</body>
-</html>
+
+    <div class="text-center">
+        <h1 class="text-3xl text-gray-700 uppercase">KGAMES</h1>
+    </div>
+
+    <livewire:videojuegos-list></livewire:videojuegos-list>
+@endsection
+    
