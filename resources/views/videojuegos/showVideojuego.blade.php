@@ -14,7 +14,6 @@
             </form> 
         </div>
         <div class="text-gray-700 col-span-2">
-            <img src="{{ $videojuego->imagen }}" alt="">
             <h2 class="text-3xl text-gray-700 uppercase">{{ $videojuego->nombre }}</h2>
             <p>{{ $videojuego->descripcion }}</p>
             <p>{{ $videojuego->categoria }}</p>
