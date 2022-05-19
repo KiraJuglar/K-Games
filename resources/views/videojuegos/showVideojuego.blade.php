@@ -15,6 +15,7 @@
         </div>
         <div class="text-gray-700 col-span-2">
             <h2 class="text-3xl text-gray-700 uppercase">{{ $videojuego->nombre }}</h2>
+            <p>{{ $videojuego->user->name }}</p>
             <p>{{ $videojuego->descripcion }}</p>
             <p>{{ $videojuego->categoria }}</p>
             <p>${{ $videojuego->precio }}</p>

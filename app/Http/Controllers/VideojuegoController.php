@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Videojuego;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VideojuegoController extends Controller
 {
@@ -12,6 +13,11 @@ class VideojuegoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+     
     public function index()
     {
         $videojuegos = Videojuego::all();
@@ -45,12 +51,16 @@ class VideojuegoController extends Controller
         ]);
 
         $videojuego = new Videojuego();
+        $videojuego->user_id = \Auth::id();
         $videojuego->nombre = $request->nombre;
         $videojuego->precio = $request->precio;
         $videojuego->descripcion = $request->descripcion;
         $videojuego->categoria = $request->categoria;
         $videojuego->imagen = '';
         $videojuego->save();
+
+        $user = Auth::user();
+        $user->videojuegos()->save($videojuego);
         return redirect('/videojuego');
     }
 
@@ -90,7 +100,6 @@ class VideojuegoController extends Controller
             'precio' => 'required|min:1|max:10',
             'descripcion' => 'required|min:10',
             'categoria' => 'required'
-            
         ]);
 
         $videojuego->nombre = $request->nombre;

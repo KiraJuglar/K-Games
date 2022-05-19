@@ -13,6 +13,19 @@
       <a href="/videojuego">
         <img src="{{ asset('images/Logo.jpg') }}" alt="" class="h-8 mx-auto"> 
       </a>
+      @auth
+      <a href="{{ url('dashboard') }}" class=" text-center underline">
+        Dashboard
+      </a>
+      @else
+        <a href="{{ url('login') }}" class="text-sm text-center underline">
+          Login
+        </a>
+        <a href="{{ url('register') }}" class="ml-4 text-sm text-center underline">
+          Register
+      @endauth
+      
+      </a>
     </nav>
   </header>
   <main class="py-10">
@@ -21,18 +34,7 @@
     </div>
   </main>
   <footer class="py-4 text-center">
-    @auth
-      <a href="{{ url('dashboard') }}" class="text-sm text-gray-700 underline">
-        Dashboard
-      </a>
-    @else
-      <a href="{{ url('login') }}" class="text-sm text-gray-700 underline">
-        Login
-      </a>
-      <a href="{{ url('register') }}" class="ml-4 text-sm text-gray-700 underline">
-        Register
-      </a>
-    @endauth
+    
   </footer>
 </body>
 </html>

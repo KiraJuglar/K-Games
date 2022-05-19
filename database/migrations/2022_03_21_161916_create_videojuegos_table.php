@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('videojuegos', function (Blueprint $table) {
             $table->id();
+            $table->foreignid('user_id');
 
             $table->string('nombre');
             $table->float('precio');

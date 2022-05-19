@@ -13,5 +13,9 @@ class Videojuego extends Model
     {
         return substr($this->descripcion,0,80) . "..." ;
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
 
