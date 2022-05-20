@@ -13,4 +13,8 @@ class Descarga extends Model
         return $this->hasMany(User::class);
     }
 
+    public function videojuegos(){
+        return $this->hasMany(Videojuego::class);
+    }
+
 }

@@ -3,17 +3,23 @@
 @section('content')
     <div class="grid grid-cols-3 gap-4">
         <div class="p-8 bg-gray-200 col-span-1">
-            <ul class="flex flex-col">
-            <li class="font-medium text-sm text-gray-400 uppercase mb-4">Contenido</li>
-            </ul>
+            <img src="{{ $videojuego->imagen }}" class="rounded-md mb-2" alt="">
             @auth
+            @if ($videojuego->user == $user)
+                <ul class="flex flex-col">
+                <li class="font-medium text-sm text-gray-400 uppercase mb-4">Opciones</li>
+                </ul>
+                
                 <a href='{{$videojuego->id}}/edit' class="font-medium text-sm text-gray-400  mb-4">Modificar</a><br>
                 <form action='{{$videojuego->id}}'method=POST>
                     @csrf
                     @method('DELETE')
                     <input class="font-medium text-sm text-gray-400  mb-4" type='submit' value='Borrar'>
                 </form> 
-                <form action='/descarga'method=POST>
+            @endif
+                <form action='/descarga' method=POST>
+                @csrf
+                    <input type="hidden" name="id" value='{{$videojuego->id}}'>
                     <input class="font-medium text-sm text-gray-400  mb-4" type='submit' 
                     name = '{{$videojuego}}' value='Descargar'>
                 </form>                

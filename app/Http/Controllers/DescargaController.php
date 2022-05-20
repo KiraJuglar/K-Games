@@ -36,15 +36,13 @@ class DescargaController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $descarga = new Descarga();
-        $descarga->videojuego_id = $request->videojuego;
+        $descarga->videojuego_id = $request->id;
 
-        $user = Auth::user();
-        $user->descargas()->save($descarga);
-        $descarga->users()->save($user);
+        $descarga->user_id = \Auth::id();
+        $descarga->save();
 
-        return redirect('/videojuego');
+        return redirect('/');
     }
 
     /**

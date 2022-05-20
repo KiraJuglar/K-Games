@@ -43,6 +43,7 @@ class VideojuegoController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $request->validate([
             'nombre' => 'required|min:5|max:255',
             'precio' => 'required|min:1|max:10',
@@ -73,7 +74,8 @@ class VideojuegoController extends Controller
      */
     public function show(Videojuego $videojuego)
     {
-        return view('videojuegos.showVideojuego', compact('videojuego'));
+        $user = Auth::user();
+        return view('videojuegos.showVideojuego', compact('videojuego', 'user'));
     }
 
     /**
@@ -107,7 +109,6 @@ class VideojuegoController extends Controller
         $videojuego->precio = $request->precio;
         $videojuego->descripcion = $request->descripcion;
         $videojuego->categoria = $request->categoria;
-        $videojuego->imagen = '';
         $videojuego->save();
         return redirect('/');
     }
