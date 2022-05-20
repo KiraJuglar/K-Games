@@ -13,12 +13,10 @@
                     @method('DELETE')
                     <input class="font-medium text-sm text-gray-400  mb-4" type='submit' value='Borrar'>
                 </form> 
-            @else
-                <form action='{{$videojuego->id}}'method=POST>
-                    @csrf
-                    @method('STORE')
-                    <input class="font-medium text-sm text-gray-400  mb-4" type='submit' value='Descargar'>
-                </form> 
+                <form action='/descarga'method=POST>
+                    <input class="font-medium text-sm text-gray-400  mb-4" type='submit' 
+                    name = '{{$videojuego}}' value='Descargar'>
+                </form>                
             @endauth
             
         </div>

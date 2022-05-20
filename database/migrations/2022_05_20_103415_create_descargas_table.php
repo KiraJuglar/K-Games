@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('descargas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->foreignid('videojuego_id');
+            $table->foreignid('user_id');
         });
     }
 

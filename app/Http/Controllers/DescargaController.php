@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Descarga;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DescargaController extends Controller
 {
@@ -35,7 +36,15 @@ class DescargaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
+        $descarga = new Descarga();
+        $descarga->videojuego_id = $request->videojuego;
+
+        $user = Auth::user();
+        $user->descargas()->save($descarga);
+        $descarga->users()->save($user);
+
+        return redirect('/videojuego');
     }
 
     /**

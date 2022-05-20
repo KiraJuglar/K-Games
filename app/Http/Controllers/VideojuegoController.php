@@ -62,7 +62,7 @@ class VideojuegoController extends Controller
 
         $user = Auth::user();
         $user->videojuegos()->save($videojuego);
-        return redirect('/videojuego');
+        return redirect('/');
     }
 
     /**
@@ -109,7 +109,7 @@ class VideojuegoController extends Controller
         $videojuego->categoria = $request->categoria;
         $videojuego->imagen = '';
         $videojuego->save();
-        return redirect('/videojuego');
+        return redirect('/');
     }
 
     /**
@@ -121,6 +121,6 @@ class VideojuegoController extends Controller
     public function destroy(Videojuego $videojuego)
     {
         $videojuego->delete();
-        return redirect('/videojuego');
+        return redirect('/');
     }
 }

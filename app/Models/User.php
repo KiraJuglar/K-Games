@@ -60,10 +60,10 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function videojuegos(){
-        return this->hasMany(Videojuego::class);
+        return $this->hasMany(Videojuego::class);
     }
 
     public function descargas(){
-        return this->hasMany(Descarga::class);
+        return $this->hasMany(Descarga::class);
     }
 }

@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kira Games</title>
+  <title>K Games</title>
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
   <header class="shadow-lg">
     <div class="bg-blue-900 py-1"></div>
     <nav class="bg-blue-800 py-2">
-      <a href="/videojuego">
-        <img src="{{ asset('images/Logo.jpg') }}" alt="" class="h-8 mx-auto"> 
+      <a href="/">
+        <img src="{{ asset('images/Logo.png') }}" alt="" class="h-8 mx-auto"> 
       </a>
       @auth
       <a href="{{ url('dashboard') }}" class=" text-center underline">
