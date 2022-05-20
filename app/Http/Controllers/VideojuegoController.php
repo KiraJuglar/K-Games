@@ -20,7 +20,8 @@ class VideojuegoController extends Controller
      
     public function index()
     {
-        $videojuegos = Videojuego::all();
+        $videojuegos = Videojuego::With('user')->get();
+        //$videojuegos = Videojuego::all();
         return view('videojuegos.indexVideojuego', compact('videojuegos'));
     }
 
