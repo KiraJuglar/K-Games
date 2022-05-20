@@ -13,20 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('videojuegos', function (Blueprint $table) {
+        Schema::create('descargas', function (Blueprint $table) {
             $table->id();
-            $table->foreignid('user_id');
-            $table->foreignid('descarga_id');
-
-            $table->string('nombre');
-            $table->float('precio');
-            $table->string('imagen');
-            $table->text('descripcion');
-            $table->string('categoria');
-            
-
             $table->timestamps();
-
         });
     }
 
@@ -37,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('videojuegos');
+        Schema::dropIfExists('descargas');
     }
 };

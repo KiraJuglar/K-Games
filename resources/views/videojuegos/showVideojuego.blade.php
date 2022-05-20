@@ -6,12 +6,21 @@
             <ul class="flex flex-col">
             <li class="font-medium text-sm text-gray-400 uppercase mb-4">Contenido</li>
             </ul>
-            <a href='{{$videojuego->id}}/edit' class="font-medium text-sm text-gray-400  mb-4">Modificar</a><br>
-            <form action='{{$videojuego->id}}'method=POST>
-                @csrf
-                @method('DELETE')
-                <input class="font-medium text-sm text-gray-400  mb-4" type='submit' value='Borrar'>
-            </form> 
+            @auth
+                <a href='{{$videojuego->id}}/edit' class="font-medium text-sm text-gray-400  mb-4">Modificar</a><br>
+                <form action='{{$videojuego->id}}'method=POST>
+                    @csrf
+                    @method('DELETE')
+                    <input class="font-medium text-sm text-gray-400  mb-4" type='submit' value='Borrar'>
+                </form> 
+            @else
+                <form action='{{$videojuego->id}}'method=POST>
+                    @csrf
+                    @method('STORE')
+                    <input class="font-medium text-sm text-gray-400  mb-4" type='submit' value='Descargar'>
+                </form> 
+            @endauth
+            
         </div>
         <div class="text-gray-700 col-span-2">
             <h2 class="text-3xl text-gray-700 uppercase">{{ $videojuego->nombre }}</h2>

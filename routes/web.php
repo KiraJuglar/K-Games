@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [VideojuegoController::class, 'index']);
 
-Route::resource('/videojuego', VideojuegoController::class);
+Route::resource('/videojuego', VideojuegoController::class) ->except(['index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

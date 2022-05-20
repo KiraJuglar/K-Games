@@ -62,4 +62,8 @@ class User extends Authenticatable
     public function videojuegos(){
         return this->hasMany(Videojuego::class);
     }
+
+    public function descargas(){
+        return this->hasMany(Descarga::class);
+    }
 }
