@@ -21,7 +21,6 @@ class VideojuegoController extends Controller
     public function index()
     {
         $videojuegos = Videojuego::With('user')->get();
-        //$videojuegos = Videojuego::all();
         return view('videojuegos.indexVideojuego', compact('videojuegos'));
     }
 
@@ -43,7 +42,6 @@ class VideojuegoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $request->validate([
             'nombre' => 'required|min:5|max:255',
             'precio' => 'required|min:1|max:10',
@@ -124,4 +122,5 @@ class VideojuegoController extends Controller
         $videojuego->delete();
         return redirect('/');
     }
+
 }

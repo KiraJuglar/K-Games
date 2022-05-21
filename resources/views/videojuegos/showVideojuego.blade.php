@@ -22,7 +22,7 @@
                     <input type="hidden" name="id" value='{{$videojuego->id}}'>
                     <input class="font-medium text-sm text-gray-400  mb-4" type='submit' 
                     name = '{{$videojuego}}' value='Descargar'>
-                </form>                
+                </form>
             @endauth
             
         </div>
@@ -32,6 +32,7 @@
             <p>{{ $videojuego->descripcion }}</p>
             <p>{{ $videojuego->categoria }}</p>
             <p>${{ $videojuego->precio }}</p>
+            
         </div>
 
         

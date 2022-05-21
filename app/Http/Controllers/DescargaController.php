@@ -15,7 +15,7 @@ class DescargaController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -41,8 +41,11 @@ class DescargaController extends Controller
 
         $descarga->user_id = \Auth::id();
         $descarga->save();
+        
+        $user = Auth::user();
+        $descargado = true;
 
-        return redirect('/');
+        return view('descargas.indexDescarga');
     }
 
     /**

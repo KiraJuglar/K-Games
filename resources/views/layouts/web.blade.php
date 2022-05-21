@@ -9,20 +9,34 @@
 <body>
   <header class="shadow-lg">
     <div class="bg-blue-900 py-1"></div>
-    <nav class="bg-blue-800 py-2">
       <a href="/">
         <img src="{{ asset('images/Logo.png') }}" alt="" class="h-8 mx-auto"> 
       </a>
+    <nav class="bg-blue-800 py-2 text-center">
+      
       @auth
-      <a href="{{ url('dashboard') }}" class=" text-center underline">
+      <a href="{{ url('dashboard') }}" class=" underline">
         Dashboard
       </a>
-      @else
-        <a href="{{ url('login') }}" class="text-sm text-center underline">
-          Login
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            this.closest('form').submit();">
+            Salir
         </a>
-        <a href="{{ url('register') }}" class="ml-4 text-sm text-center underline">
-          Register
+        <div class="text-center">
+          <a href='videojuego/create' class="text-lg" >Crear videojuego</a><br>
+        </div>
+      </form>
+      @else
+        <a href="{{ url('login') }}" class="text-sm  underline">
+          Inicia sesion
+        </a>
+        <a href="{{ url('register') }}" class="ml-4 text-sm  underline">
+          Registrarse
+        </a>
+        
       @endauth
       
       </a>
